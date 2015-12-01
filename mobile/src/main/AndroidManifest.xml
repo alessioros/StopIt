@@ -22,6 +22,9 @@
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="@string/app_name" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ed5f9fd2eb1d26ef68ee4d105c9f24d258480175" />
     </application>
 
 </manifest>
