@@ -21,7 +21,7 @@ public class LoginFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.FB, container, false);
+        View view = inflater.inflate(R.layout.fb, container, false);
 
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) view.findViewById(R.id.login_button);
