@@ -31,7 +31,6 @@ public class TwitterLogin extends Fragment {
                 TwitterSession session = result.data;
                 String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
                 Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-
                 
             }
 
