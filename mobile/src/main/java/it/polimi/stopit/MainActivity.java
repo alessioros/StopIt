@@ -3,7 +3,8 @@ package it.polimi.stopit;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -12,7 +13,7 @@ import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import io.fabric.sdk.android.Fabric;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TWITTER_KEY = "nLt2Z8VOoBTb8028BM6bMYZiD";
     private static final String TWITTER_SECRET = "oitbPlvXDHtTIhrQX2uxLzG7d7AvzZzAPQ4XpheENxp5BqQ0ql";
@@ -24,6 +25,11 @@ public class MainActivity extends FragmentActivity {
         Fabric.with(this, new Twitter(authConfig));
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("StopIt!");
+        getSupportActionBar().setElevation(4);
+
     }
 
     @Override

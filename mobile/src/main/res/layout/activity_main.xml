@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
 
     <fragment android:name="it.polimi.stopit.LoginFragment"
         android:id="@+id/article_fragment"
@@ -25,10 +36,11 @@
         android:layout_marginTop="80dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView"
         android:src="@drawable/stopitsymbol"
+        android:layout_marginTop="50dp"
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true" />
 
@@ -36,7 +48,7 @@
         android:layout_height="wrap_content"
         android:textSize="40dp"
         android:id="@+id/textView"
-        android:layout_marginBottom="133dp"
+        android:layout_marginTop="10dp"
         android:layout_above="@+id/article_fragment"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-regular"
@@ -46,8 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
+        android:layout_marginTop="40dp"
+        android:id="@+id/view"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/view" />
+        android:layout_alignStart="@+id/article_fragment" />
 
 </RelativeLayout>
