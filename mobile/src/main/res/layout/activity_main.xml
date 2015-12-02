@@ -6,18 +6,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/stopitsymbol"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <TextView android:text="StopIt!" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:id="@+id/textView"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#000000" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:title="@string/title"
-        android:titleTextColor="@color/white"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/view"
+        android:layout_centerVertical="true"/>
 
     <fragment android:name="it.polimi.stopit.LoginFragment"
         android:id="@+id/article_fragment"
@@ -41,33 +53,5 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/stopitsymbol"
-        android:layout_marginTop="50dp"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView android:text="StopIt!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:id="@+id/textView"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/article_fragment"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-regular"
-        android:textColor="#000000" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:id="@+id/view"
-        android:layout_marginTop="300dp"
-        android:layout_alignStart="@+id/toolbar" />
 
 </RelativeLayout>
