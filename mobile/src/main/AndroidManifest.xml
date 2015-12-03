@@ -28,7 +28,7 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <activity android:name=".activities.FBProfileActivity"
+        <activity android:name=".activities.ProfileActivity"
             android:screenOrientation="portrait">
         </activity>
 

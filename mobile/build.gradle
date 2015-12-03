@@ -45,5 +45,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:8.3.0'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'com.twitter.sdk.android:twitter:1.10.0'
+    compile 'com.mikhaellopez:circularimageview:2.0.2'
 }
 
