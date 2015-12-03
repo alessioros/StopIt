@@ -1,4 +1,4 @@
-package it.polimi.stopit;
+package it.polimi.stopit.activities;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import io.fabric.sdk.android.Fabric;
+import it.polimi.stopit.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +56,4 @@ public class MainActivity extends AppCompatActivity {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
     }
-
-
 }

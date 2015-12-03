@@ -1,4 +1,4 @@
-package it.polimi.stopit;
+package it.polimi.stopit.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+
+import it.polimi.stopit.R;
 
 public class TwitterLogin extends Fragment {
 

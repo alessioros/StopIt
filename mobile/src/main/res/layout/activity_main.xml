@@ -31,7 +31,7 @@
         android:id="@+id/view"
         android:layout_centerVertical="true"/>
 
-    <fragment android:name="it.polimi.stopit.LoginFragment"
+    <fragment android:name="it.polimi.stopit.fragments.FacebookLogin"
         android:id="@+id/article_fragment"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -42,7 +42,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginRight="75dp"/>
 
-    <fragment android:name="it.polimi.stopit.TwitterLogin"
+    <fragment android:name="it.polimi.stopit.fragments.TwitterLogin"
         android:id="@+id/twitter_fragment"
         android:layout_width="match_parent"
         android:layout_height="50dp"
