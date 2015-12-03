@@ -1,8 +1,5 @@
 package it.polimi.stopit.model;
 
-
-import java.net.URL;
-
 /**
  * Created by matteo on 03/12/15.
  */
@@ -10,7 +7,7 @@ public class User {
 
     private String ID;
     private String name,surname;
-    private URL profilePic;
+    private String profilePic;
 
     public String getID() {
         return ID;
@@ -34,11 +31,11 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    public URL getProfilePic() {
+    public String getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(URL profilePic) {
+    public void setProfilePic(String profilePic) {
         this.profilePic = profilePic;
     }
 }

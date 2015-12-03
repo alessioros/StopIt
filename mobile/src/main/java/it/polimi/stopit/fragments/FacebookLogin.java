@@ -1,8 +1,8 @@
 package it.polimi.stopit.fragments;
 
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -34,8 +35,13 @@ public class FacebookLogin extends Fragment {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(getActivity(),ProfileActivity.class);
-                getActivity().startActivity(myIntent);
+                Intent intent = new Intent(getActivity(),ProfileActivity.class);
+                intent.putExtra("userID", Profile.getCurrentProfile().getId());
+                intent.putExtra("name", Profile.getCurrentProfile().getFirstName());
+                intent.putExtra("surname", Profile.getCurrentProfile().getLastName());
+                intent.putExtra("imageURL", "https://graph.facebook.com/"+Profile.getCurrentProfile().getId()+"/picture?type=large");
+
+                getActivity().startActivity(intent);
             }
 
             @Override

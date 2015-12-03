@@ -9,17 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.core.models.User;
 
 import it.polimi.stopit.R;
+import it.polimi.stopit.activities.ProfileActivity;
 
 public class TwitterLogin extends Fragment {
 
     private TwitterLoginButton loginButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,10 +34,35 @@ public class TwitterLogin extends Fragment {
             @Override
             public void success(Result<TwitterSession> result) {
 
-                TwitterSession session = result.data;
-                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
-                Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                
+                TwitterSession session = Twitter.getSessionManager().getActiveSession();
+                Twitter.getApiClient(session).getAccountService().verifyCredentials(true, false, new Callback<User>() {
+
+                    @Override
+                    public void success(Result<User> userResult) {
+
+                        User user = userResult.data;
+                        String namesurname[]=user.name.split(" ");
+                        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                        intent.putExtra("userID", user.idStr);
+                        intent.putExtra("username", user.screenName);
+                        intent.putExtra("imageURL", user.profileImageUrl.replace("_normal",""));
+                        intent.putExtra("name", namesurname[0]);
+                        intent.putExtra("surname", namesurname[1]);
+
+                        String msg = "@" + user.screenName + " logged in!";
+                        Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+
+                        getActivity().startActivity(intent);
+                    }
+
+                    @Override
+                    public void failure(TwitterException e) {
+
+                    }
+
+                });
+
+
             }
 
             @Override

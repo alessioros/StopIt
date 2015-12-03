@@ -2,19 +2,14 @@ package it.polimi.stopit.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.facebook.Profile;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
-
 
 import it.polimi.stopit.R;
 import it.polimi.stopit.model.User;
 
-/**
- * Created by matteo on 03/12/15.
- */
 public class ProfileActivity extends AppCompatActivity {
 
     @Override
@@ -24,11 +19,17 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile);
 
         User user=new User();
-        user.setID(Profile.getCurrentProfile().getId());
-        user.setName(Profile.getCurrentProfile().getFirstName());
-        user.setSurname(Profile.getCurrentProfile().getLastName());
 
+        user.setID(getIntent().getExtras().getString("userID"));
+        user.setName(getIntent().getExtras().getString("name"));
+        user.setSurname(getIntent().getExtras().getString("surname"));
+        user.setProfilePic(getIntent().getExtras().getString("imageURL"));
+
+        TextView username = (TextView) findViewById(R.id.username);
+
+        username.setText(""+user.getName()+" "+user.getSurname());
         CircularImageView profilepic=(CircularImageView) findViewById(R.id.profilepic);
-        Picasso.with(getApplicationContext()).load("https://graph.facebook.com/" + user.getID() + "/picture?type=large").into(profilepic);
+        Picasso.with(getApplicationContext()).load(user.getProfilePic()).into(profilepic);
+
     }
 }
